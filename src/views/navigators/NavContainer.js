@@ -3,6 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import MyTransition from "./Transition";
 import SplashScreen from "../screens/SplashScreen";
+import QRScreen from "../screens/QRScreen";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,13 @@ function NavContainer() {
         <Stack.Screen
           name="Splash"
           component={SplashScreen}
+          options={{
+            headerShown: false,
+          }}
+        />
+         <Stack.Screen
+          name="QRScreen"
+          component={QRScreen}
           options={{
             headerShown: false,
           }}
