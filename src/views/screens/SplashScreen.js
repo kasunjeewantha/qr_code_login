@@ -2,13 +2,25 @@ import React, {Component} from 'react';
 import {View, SafeAreaView, Text} from 'react-native';
 import SplashScreenStyles from '../../styles/screens/SplashScreenStyles';
 import {APP_VERSION} from '../../config/index';
+import {GetRegisteredUsers} from '../../process/SplashScreenProcess';
 
-class SplashScreen extends Component {
-  componentDidMount() {
+//import SQLiteDB from '../../utils/SQLiteDB';
+//import {db} from '../../firebase/firebase-config';
+//import {collection, getDocs} from 'firebase/firestore/lite';
+
+export default class SplashScreen extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  async componentDidMount() {
+    await GetRegisteredUsers();
+
     this.timeoutHandle = setTimeout(() => {
       this.props.navigation.navigate('QRScreen');
-    }, 4000);
-  } // End of componentDidMount()
+    }, 2000);
+  }
 
   render() {
     return (
@@ -28,5 +40,3 @@ class SplashScreen extends Component {
     );
   }
 }
-
-export default SplashScreen;
