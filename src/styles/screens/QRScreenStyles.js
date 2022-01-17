@@ -16,6 +16,11 @@ const QRScreenStyles = StyleSheet.create({
     justifyContent: 'center',
   },
 
+  KeyboardAwareScrollView: {
+    flexGrow : 1,
+    //justifyContent: "center",
+  },
+
   qrContainer: {
     flex: 2.3,
     //margin: 10,
@@ -32,10 +37,11 @@ const QRScreenStyles = StyleSheet.create({
   },
 
   buttonView: {
-    flex: 0.5,
+    height: 50,
+    //margin:10,
     //backgroundColor: "green",
     justifyContent: 'center',
-    alignItems: 'center',
+    //alignItems: 'center',
   },
 
   mainTitle: {
@@ -54,7 +60,6 @@ const QRScreenStyles = StyleSheet.create({
     fontFamily: themes.ROBOTO_MEDIUM,
     color: themes.TEXT_COLOR_BLACK,
     fontWeight: 'bold',
-    marginBottom: 15,
     fontSize: 17,
   },
 });
