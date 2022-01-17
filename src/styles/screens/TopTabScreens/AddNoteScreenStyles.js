@@ -1,23 +1,22 @@
 import {StyleSheet} from 'react-native';
-import themes from '../../Thems';
+import Color from '../../Colors'
 
 const AddNoteScreenStyles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: themes.BACKGROUNG_COLOR_WHITE,
+    backgroundColor: Color.WHITE_COLOR,
   },
 
   mainContainer: {
     flex: 1,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
-    backgroundColor: themes.BACKGROUNG_COLOR_WHITE,
+    backgroundColor: Color.WHITE_COLOR,
     justifyContent: 'center',
   },
 
   KeyboardAwareScrollView: {
     flexGrow : 1,
-    //justifyContent: "center",
   },
 
 

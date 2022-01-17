@@ -1,20 +1,18 @@
-import SQLiteDB from '../utils/SQLiteDB';
 import {db} from '../firebase/firebase-config';
-import {collection, getDocs} from 'firebase/firestore/lite';
+import {collection, addDoc} from 'firebase/firestore/lite';
+import {Alert} from 'react-native';
+import moment from 'moment';
 
-export default async function GetNotes(QRId, callback) {
-  const notesCol = collection(db, 'notes');
-  const notesSnapshot = await getDocs(notesCol);
-  const noteList = notesSnapshot.docs.map(doc => doc.data());
+export default async function SetNotes(Note,QRId) {
+  let CurrentDate = moment()
+    .utcOffset('+05:30')
+    .format('YYYY-MM-DD hh:mm:ss')
+    .toString();
 
-  console.log('' + JSON.stringify(noteList));
-
-  await SQLiteDB.DeleteNoteTable();
-  await SQLiteDB.CreateTable();
-  await SQLiteDB.InsertNoteTable(noteList, noteList.length);
-  await SQLiteDB.SelectNoteByQRIdTable(QRId, NoteTableDetails => {
-    console.log('NoteTableDetails' + JSON.stringify(NoteTableDetails));
-
-    callback(NoteTableDetails);
+  const docRef = await addDoc(collection(db, 'notes'), {
+    note: Note,
+    time: CurrentDate,
+    QRId: QRId,
   });
-} // End of SearchBSP()
+  Alert.alert('', 'Submit Successful', [{text: 'OK'}]);
+}

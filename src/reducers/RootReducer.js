@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import QRScreenReducer from "./QRScreenReducer";
-import AddNoteScreenReducer from "./AddNoteScreenReducer";
+import ViewNoteScreenReducer from "./ViewNoteScreenReducer";
 
 const RootReducer = combineReducers({
     userdetails : QRScreenReducer,
-    usernotes : AddNoteScreenReducer,
+    usernotes : ViewNoteScreenReducer,
 });
 
 export default RootReducer;

@@ -1,14 +1,17 @@
 import React, {Component} from 'react';
-import {View, SafeAreaView, Text, ReadableStreamReader} from 'react-native';
+import {View, SafeAreaView, Text, BackHandler, Alert} from 'react-native';
 import QRScreenStyles from '../../styles/screens/QRScreenStyles';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {RNCamera} from 'react-native-camera';
 import Button from '../../views/components/CustomButton';
+import MainTitleBar from '../../views/components/MainTitleBar';
 import SQLiteDB from '../../utils/SQLiteDB';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {UpdateUserDetails} from '../../actions/QRScreenActions';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import Colors from '../../styles/Colors';
+import BackArrow from '../../assets/icons/backarrow.svg';
 
 class QRScreen extends Component {
   constructor(props) {
@@ -18,7 +21,29 @@ class QRScreen extends Component {
       success: false,
     };
   }
-  async componentDidMount() {}
+  async componentDidMount() {
+    BackHandler.addEventListener('hardwareBackPress', this.onPressBack);
+  }
+
+  componentWillUnmount() {
+    BackHandler.removeEventListener('hardwareBackPress', this.onPressBack);
+  }
+
+  onPressBack = () => {
+    Alert.alert('Confirm Logout', 'Do you really want to logout?', [
+      {
+        text: 'YES',
+        onPress: () => {
+          BackHandler.exitApp();
+        },
+      },
+      {
+        text: 'NO',
+        onPress: () => null,
+      },
+    ]);
+    return true;
+  };
 
   onRead = async e => {
     let QRId;
@@ -46,9 +71,13 @@ class QRScreen extends Component {
           });
           console.log('UserDetails' + JSON.stringify(UserDetails));
           this.props.UpdateUserDetails(UserDetails);
+          Alert.alert('Login Successful', 'Click continue button', [
+            {text: 'OK'},
+          ]);
           break;
         } else {
           console.log('login fail');
+          Alert.alert('Login Error', 'Login fail', [{text: 'OK'}]);
           success = false;
         }
       }
@@ -66,6 +95,13 @@ class QRScreen extends Component {
   render() {
     return (
       <SafeAreaView style={QRScreenStyles.safeAreaView}>
+        <MainTitleBar
+          title="Pronto QR"
+          optionLeftActive={true}
+          optionRightActive={false}
+          onPressLeftOption={this.onPressBack.bind()}
+          OptionLeftSVG={BackArrow}
+        />
         <View style={QRScreenStyles.mainContainer}>
           <KeyboardAwareScrollView
             behavior="padding"
@@ -92,7 +128,11 @@ class QRScreen extends Component {
               <Button
                 text={'Continue'}
                 disabled={this.state.success ? false : true}
-                buttoncolor={this.state.success ? 'green' : '#bcf5bc'}
+                buttoncolor={
+                  this.state.success
+                    ? Colors.BUTTON_ACTIVE_GREEN_COLOR
+                    : Colors.BUTTON_INACTIVE_GREEN_COLOR
+                }
                 textcolor={'white'}
                 border={false}
                 onPress={() => {

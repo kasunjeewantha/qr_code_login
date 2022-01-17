@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {View, FlatList, Text} from 'react-native';
-import HomeSummaryScreenStyles from '../../../styles/screens/TopTabScreens/ViewNoteScreenStyles';
+import ViewNoteScreenStyles from '../../../styles/screens/TopTabScreens/ViewNoteScreenStyles';
 import {connect} from 'react-redux';
-import GetNotes from '../../../process/AddNoteProcess';
-import {UpdateADDNotes} from '../../../actions/AddNoteActions';
+import GetNotes from '../../../process/ViewNoteProcess';
+import {UpdateViewNotes} from '../../../actions/ViewNoteAction';
 import {bindActionCreators} from 'redux';
 
 class ViewNoteScreen extends Component {
@@ -24,7 +24,7 @@ class ViewNoteScreen extends Component {
         });
       });
 
-      this.props.UpdateADDNotes(this.state.NoteTableDetails);
+      this.props.UpdateViewNotes(this.state.NoteTableDetails);
     });
   }
 
@@ -38,21 +38,21 @@ class ViewNoteScreen extends Component {
     // JSON.stringify(this.props.usernotes.NoteList),
     //);
     return (
-      <View style={HomeSummaryScreenStyles.mainContainer}>
-        <View style={HomeSummaryScreenStyles.flatlistView}>
+      <View style={ViewNoteScreenStyles.mainContainer}>
+        <View style={ViewNoteScreenStyles.flatlistView}>
           {this.props.usernotes.NoteList &&
           this.props.usernotes.NoteList.length > 0 ? (
             <FlatList
               data={this.props.usernotes.NoteList}
               renderItem={({item}) => (
-                <View style={HomeSummaryScreenStyles.CardView}>
-                  <View style={HomeSummaryScreenStyles.topView}>
-                    <Text style={HomeSummaryScreenStyles.topViewText}>
+                <View style={ViewNoteScreenStyles.CardView}>
+                  <View style={ViewNoteScreenStyles.topView}>
+                    <Text style={ViewNoteScreenStyles.topViewText}>
                      {item.Content}
                     </Text>
                   </View>
-                  <View style={HomeSummaryScreenStyles.bottomView}>
-                    <Text style={HomeSummaryScreenStyles.bottomViewText}>
+                  <View style={ViewNoteScreenStyles.bottomView}>
+                    <Text style={ViewNoteScreenStyles.bottomViewText}>
                      {item.Date}
                     </Text>
                   </View>
@@ -61,7 +61,10 @@ class ViewNoteScreen extends Component {
               keyExtractor={item => item.ID}
             />
           ) : (
-            <View style={HomeSummaryScreenStyles.mainContainer}></View>
+            <View style={ViewNoteScreenStyles.mainContainer}>
+
+
+            </View>
           )}
         </View>
       </View>
@@ -75,7 +78,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  UpdateADDNotes: bindActionCreators(UpdateADDNotes, dispatch),
+  UpdateViewNotes: bindActionCreators(UpdateViewNotes, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ViewNoteScreen);

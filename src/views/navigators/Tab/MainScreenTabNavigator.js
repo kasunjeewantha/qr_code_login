@@ -12,21 +12,25 @@ const Tab = createMaterialTopTabNavigator();
 export default function MainScreenTabNavigator() {
   return (
     <Tab.Navigator
-      tabBarOptions={{
-        labelStyle: {fontSize: 10, fontWeight: 'bold'},
-        style: {
-          backgroundColor: themes.BACKGROUNG_COLOR_BLUE,
+      screenOptions={{
+        tabBarLabelStyle: {fontSize: 12},
+        tabBarItemStyle: {flex: 1, height: 60},
+        tabBarStyle: {backgroundColor: '#BCED91'},
+        tabBarLabelStyle: {
+          fontSize: 12,
+          fontFamily: themes.ROBOTO_MEDIUM,
+          textAlign: 'center',
+          fontWeight:"bold"
         },
-        showIcon: true,
-        activeTintColor: Colors.RED_COLOR,
-        inactiveTintColor: themes.BACKGROUNG_COLOR_WHITE,
-        tabStyle: {
-          height: 55,
+        tabBarIndicatorStyle: {
+          //width: 100,
+          height: 5,
+          backgroundColor: 'green',
         },
-        indicatorStyle: {
-          height: 3,
-          backgroundColor: Colors.RED_COLOR,
-        },
+        tabBarActiveTintColor: 'green',
+        tabBarInactiveTintColor: '#C1CDC1',
+        headerShown: false,
+        //tabBarShowIcon : {true}
       }}>
       <Tab.Screen
         name="AddNoteScreen"
@@ -37,7 +41,7 @@ export default function MainScreenTabNavigator() {
             <AddNote
               width="30"
               height="25"
-              fill={focused ? Colors.RED_COLOR : Colors.WHITE_COLOR}
+              fill={focused ? 'green' : '#C1CDC1'}
             />
           ),
         }}
@@ -52,7 +56,7 @@ export default function MainScreenTabNavigator() {
             <ViewNote
               width="30"
               height="26"
-              fill={focused ? Colors.RED_COLOR : Colors.WHITE_COLOR}
+              fill={focused ? 'green' : '#C1CDC1'}
             />
           ),
         }}

@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native';
 import Colors from '../../styles/Colors';
 import Fonts from '../../styles/Fonts';
-import fonts from '../../styles/Fonts';
 
 const SplashScreenStyles = StyleSheet.create({
   safeAreaView: {
@@ -32,7 +31,6 @@ const SplashScreenStyles = StyleSheet.create({
   version: {
     height:50,
     padding:5,
-    //backgroundColor: "red",
     justifyContent:"flex-end",
     alignItems:"center"
   },

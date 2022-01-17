@@ -1,24 +1,25 @@
 import {StyleSheet} from 'react-native';
-import themes from '../../Thems';
+import Colors from '../../Colors';
+import Fonts from '../../Fonts';
 
 const ViewNoteScreenStyles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     borderBottomLeftRadius: 5,
     borderBottomRightRadius: 5,
-    backgroundColor: themes.BACKGROUNG_COLOR_WHITE,
+    backgroundColor: Colors.WHITE_COLOR,
     justifyContent: 'center',
   },
 
   safeAreaView: {
     flex: 1,
-    backgroundColor: themes.BACKGROUNG_COLOR_WHITE,
+    backgroundColor: Colors.WHITE_COLOR,
   },
 
   CardViewWithoutPadding: {
     flex: 1,
     margin: 5,
-    backgroundColor: themes.BACKGROUNG_COLOR_WHITE,
+    backgroundColor: Colors.WHITE_COLOR,
     borderRadius: 5,
     padding: 2,
     justifyContent: 'center',
@@ -27,16 +28,17 @@ const ViewNoteScreenStyles = StyleSheet.create({
   },
 
   flatlistView: {
-    backgroundColor: themes.BACKGROUNG_COLOR_WHITE,
+    backgroundColor: Colors.WHITE_COLOR,
     flex: 1,
     justifyContent: 'center',
   },
 
   CardView: {
-    height: 95,
+    flex: 1,
+    justifyContent: 'center',
     elevation: 5,
     borderRadius: 8,
-    backgroundColor: themes.BACKGROUNG_COLOR_WHITE,
+    backgroundColor: Colors.WHITE_COLOR,
     margin: 5,
     padding: 4,
   },
@@ -45,40 +47,36 @@ const ViewNoteScreenStyles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'flex-start',
-    //backgroundColor: 'red',
   },
 
   bottomView: {
     height: 20,
     justifyContent: 'center',
     alignItems: 'flex-end',
-    //backgroundColor: 'green',
   },
 
   topViewText: {
     textAlign: 'left',
-    fontFamily: themes.ROBOTO_REGULAR,
+    fontFamily: Fonts.ROBOTO_REGULAR,
     fontSize: 14,
-    color: themes.TEXT_COLOR_BLACK,
+    color: Colors.BLACK_COLOR,
   },
 
   bottomViewText: {
     textAlign: 'right',
-    fontFamily: themes.ROBOTO_REGULAR,
+    fontFamily: Fonts.ROBOTO_REGULAR,
     fontSize: 10,
-    color: themes.TEXT_COLOR_BLACK,
+    color: Colors.BLACK_COLOR,
   },
 
   flatListViewBlank: {
     flex: 1,
-    backgroundColor: themes.BACKGROUNG_COLOR_WHITE,
+    backgroundColor: Colors.WHITE_COLOR,
     justifyContent: 'center',
     alignItems: 'center',
-    //borderWidth: 1,
   },
 
   flatListBlankText: {
-    color: themes.BACKGROUNG_COLOR_BLUE,
     fontSize: 16,
     justifyContent: 'center',
     alignItems: 'center',

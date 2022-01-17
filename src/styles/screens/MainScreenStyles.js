@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native';
 import Colors from '../../styles/Colors';
 import Fonts from '../../styles/Fonts';
-import themes from '../../styles/Thems';
 
 const MainScreenStyles = StyleSheet.create({
   safeAreaView: {
@@ -17,9 +16,7 @@ const MainScreenStyles = StyleSheet.create({
 
   userDetailView: {
     height: 60,
-    //padding: 5,
     paddingLeft:8,
-    //backgroundColor: "red",
     justifyContent: 'center',
     alignItems: 'flex-start',
   },
@@ -32,9 +29,8 @@ const MainScreenStyles = StyleSheet.create({
     borderRadius: 5,
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: themes.BACKGROUNG_COLOR_BLUE,
+    borderColor: Colors.GREEN_COLOR,
     elevation: 2,
-    //borderWidth: 0.2,
   },
 
   userDetailText: {

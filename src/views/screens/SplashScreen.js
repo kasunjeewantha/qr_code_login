@@ -4,10 +4,6 @@ import SplashScreenStyles from '../../styles/screens/SplashScreenStyles';
 import {APP_VERSION} from '../../config/index';
 import {GetRegisteredUsers} from '../../process/SplashScreenProcess';
 
-//import SQLiteDB from '../../utils/SQLiteDB';
-//import {db} from '../../firebase/firebase-config';
-//import {collection, getDocs} from 'firebase/firestore/lite';
-
 export default class SplashScreen extends Component {
   constructor() {
     super();

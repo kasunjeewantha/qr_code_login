@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, TextInput, StyleSheet} from 'react-native';
-import themes from '../../styles/Thems';
+import Colors from '../../styles/Colors';
+import Fonts from '../../styles/Fonts';
 
 const MainTextInput = ({
   displaytitle,
@@ -46,7 +47,6 @@ const styles = StyleSheet.create({
   titleView: {
     justifyContent: 'center',
     height: 30,
-    //backgroundColor:"green"
   },
 
   textInputMainView: {
@@ -55,13 +55,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     marginTop: 10,
-    //backgroundColor:"blue"
   },
 
   titleText: {
-    fontFamily: themes.ROBOTO_REGULAR,
+    fontFamily: Fonts.ROBOTO_REGULAR,
     fontSize: 13,
-    color: themes.TEXT_COLOR_BLACK,
+    color: Colors.BLACK_COLOR,
     textAlign: 'left',
   },
 
@@ -69,18 +68,16 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 2,
     borderRadius: 5,
-    borderColor: '#000000',
+    borderColor: Colors.BLACK_COLOR,
     borderWidth: 1,
-    //backgroundColor:"red"
   },
 
   textIn: {
     flex: 1,
-    fontFamily: themes.Calibri_Regular,
-    color: themes.BLACK_COLOR,
+    fontFamily: Fonts.ROBOTO_MEDIUM,
+    color: Colors.BLACK_COLOR,
     fontSize: 14,
     marginLeft: 4,
-    //backgroundColor:'orange',
     justifyContent: 'center',
     textAlign: 'left',
     textAlignVertical: 'top',
