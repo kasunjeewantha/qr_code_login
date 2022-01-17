@@ -69,18 +69,19 @@ const ViewNoteScreenStyles = StyleSheet.create({
     color: Colors.BLACK_COLOR,
   },
 
-  flatListViewBlank: {
+  ViewBlank: {
     flex: 1,
     backgroundColor: Colors.WHITE_COLOR,
     justifyContent: 'center',
     alignItems: 'center',
   },
 
-  flatListBlankText: {
+  BlankText: {
     fontSize: 16,
+    color: Colors.BLACK_COLOR,
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 5,
+    marginTop: 8,
   },
 });
 

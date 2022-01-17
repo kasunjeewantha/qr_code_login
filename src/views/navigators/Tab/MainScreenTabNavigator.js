@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
+import {StyleSheet} from 'react-native';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import themes from '../../../styles/Thems';
 import AddNoteScreen from '../../screens/TopTabScreens/AddNoteScreen';
 import ViewNoteScreen from '../../screens/TopTabScreens/ViewNoteScreen';
 import AddNote from '../../../assets/icons/addnote.svg';
 import ViewNote from '../../../assets/icons/viewnote.svg';
 import Colors from '../../../styles/Colors';
+import Fonts from '../../../styles/Fonts';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -13,24 +14,13 @@ export default function MainScreenTabNavigator() {
   return (
     <Tab.Navigator
       screenOptions={{
-        tabBarLabelStyle: {fontSize: 12},
-        tabBarItemStyle: {flex: 1, height: 60},
-        tabBarStyle: {backgroundColor: '#BCED91'},
-        tabBarLabelStyle: {
-          fontSize: 12,
-          fontFamily: themes.ROBOTO_MEDIUM,
-          textAlign: 'center',
-          fontWeight:"bold"
-        },
-        tabBarIndicatorStyle: {
-          //width: 100,
-          height: 5,
-          backgroundColor: 'green',
-        },
-        tabBarActiveTintColor: 'green',
-        tabBarInactiveTintColor: '#C1CDC1',
+        tabBarLabelStyle: styles.tabBarLabelStyle,
+        tabBarItemStyle: styles.tabBarItemStyle,
+        tabBarStyle: styles.tabBarStyle,
+        tabBarIndicatorStyle: styles.tabBarIndicatorStyle,
+        tabBarActiveTintColor: Colors.GREEN_COLOR,
+        tabBarInactiveTintColor: Colors.INACTIVE_TINT_COLOR,
         headerShown: false,
-        //tabBarShowIcon : {true}
       }}>
       <Tab.Screen
         name="AddNoteScreen"
@@ -41,7 +31,7 @@ export default function MainScreenTabNavigator() {
             <AddNote
               width="30"
               height="25"
-              fill={focused ? 'green' : '#C1CDC1'}
+              fill={focused ? Colors.GREEN_COLOR : Colors.INACTIVE_TINT_COLOR}
             />
           ),
         }}
@@ -56,7 +46,7 @@ export default function MainScreenTabNavigator() {
             <ViewNote
               width="30"
               height="26"
-              fill={focused ? 'green' : '#C1CDC1'}
+              fill={focused ? Colors.GREEN_COLOR : Colors.INACTIVE_TINT_COLOR}
             />
           ),
         }}
@@ -64,3 +54,28 @@ export default function MainScreenTabNavigator() {
     </Tab.Navigator>
   );
 }
+
+const styles = StyleSheet.create({
+  tabBarLabelStyle: {
+    fontSize: 12,
+    fontFamily: Fonts.ROBOTO_MEDIUM,
+    textAlign: 'center',
+    fontWeight: 'bold',
+  },
+  tabBarItemStyle: {
+    flex: 1,
+    height: 60,
+  },
+  tabBarStyle: {
+    backgroundColor: Colors.TAB_BAR_COLOR,
+  },
+  tabBarIndicatorStyle: {
+    height: 5,
+    backgroundColor: Colors.GREEN_COLOR,
+  },
+  tabBarIndicator: {
+    width: 100,
+    height: 5,
+    backgroundColor: Colors.GREEN_COLOR,
+  },
+});

@@ -4,11 +4,8 @@ import AddNoteScreenStyles from '../../../styles/screens/TopTabScreens/AddNoteSc
 import MainTextInput from '../../components/MainTextInput';
 import Button from '../../components/CustomButton';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-//import {db} from '../../../firebase/firebase-config';
-//import {collection, addDoc} from 'firebase/firestore/lite';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-//import moment from 'moment';
 import Colors from '../../../styles/Colors';
 import {ValidateADDNotes} from '../../../actions/AddNoteActions';
 
@@ -44,37 +41,39 @@ class AddNoteScreen extends Component {
 
   render() {
     return (
-      <View style={AddNoteScreenStyles.mainContainer}>
-        <KeyboardAwareScrollView
-          behavior="padding"
-          contentContainerStyle={AddNoteScreenStyles.KeyboardAwareScrollView}>
-          <View style={AddNoteScreenStyles.textInputView}>
-            <MainTextInput
-              displaytitle={true}
-              title="Note"
-              value={this.state.note}
-              placeholder={'Add Notes'}
-              placeholderTextColor={Colors.INPUT_TEXT_HINT_COLOR}
-              onChangeText={this.handleNotes}
-              autoFocus={true}
-              returnKeyType="next"
-              blurOnSubmit={false}
-              multiline={true}
-            />
-          </View>
-          <View style={AddNoteScreenStyles.buttonView}>
-            <Button
-              text={'Submit'}
-              buttoncolor={Colors.BUTTON_ACTIVE_GREEN_COLOR}
-              textcolor={'white'}
-              border={false}
-              onPress={() => {
-                this.SubmitButton();
-              }}
-            />
-          </View>
-        </KeyboardAwareScrollView>
-      </View>
+      <>
+        <View style={AddNoteScreenStyles.mainContainer}>
+          <KeyboardAwareScrollView
+            behavior="padding"
+            contentContainerStyle={AddNoteScreenStyles.KeyboardAwareScrollView}>
+            <View style={AddNoteScreenStyles.textInputView}>
+              <MainTextInput
+                displaytitle={true}
+                title="Note"
+                value={this.state.note}
+                placeholder={'Add Notes'}
+                placeholderTextColor={Colors.INPUT_TEXT_HINT_COLOR}
+                onChangeText={this.handleNotes}
+                autoFocus={true}
+                returnKeyType="next"
+                blurOnSubmit={false}
+                multiline={true}
+              />
+            </View>
+            <View style={AddNoteScreenStyles.buttonView}>
+              <Button
+                text={'Submit'}
+                buttoncolor={Colors.BUTTON_ACTIVE_GREEN_COLOR}
+                textcolor={'white'}
+                border={false}
+                onPress={() => {
+                  this.SubmitButton();
+                }}
+              />
+            </View>
+          </KeyboardAwareScrollView>
+        </View>
+      </>
     );
   }
 }

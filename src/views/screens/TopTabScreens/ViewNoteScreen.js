@@ -5,6 +5,8 @@ import {connect} from 'react-redux';
 import GetNotes from '../../../process/ViewNoteProcess';
 import {UpdateViewNotes} from '../../../actions/ViewNoteAction';
 import {bindActionCreators} from 'redux';
+import ViewNote from '../../../assets/icons/viewnote.svg';
+import Colors from '../../../styles/Colors';
 
 class ViewNoteScreen extends Component {
   constructor() {
@@ -48,12 +50,12 @@ class ViewNoteScreen extends Component {
                 <View style={ViewNoteScreenStyles.CardView}>
                   <View style={ViewNoteScreenStyles.topView}>
                     <Text style={ViewNoteScreenStyles.topViewText}>
-                     {item.Content}
+                      {item.Content}
                     </Text>
                   </View>
                   <View style={ViewNoteScreenStyles.bottomView}>
                     <Text style={ViewNoteScreenStyles.bottomViewText}>
-                     {item.Date}
+                      {item.Date}
                     </Text>
                   </View>
                 </View>
@@ -61,9 +63,12 @@ class ViewNoteScreen extends Component {
               keyExtractor={item => item.ID}
             />
           ) : (
-            <View style={ViewNoteScreenStyles.mainContainer}>
+            <View style={ViewNoteScreenStyles.ViewBlank}>
+              <ViewNote height={75} width={75} fill={Colors.GREEN_COLOR} />
 
-
+              <Text style={ViewNoteScreenStyles.BlankText}>
+                No result to show
+              </Text>
             </View>
           )}
         </View>
