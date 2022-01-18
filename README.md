@@ -1,6 +1,7 @@
-#### Pronto QR
+Pronto QR
 
 About 
+----------------
 
 This app allows the user to log to the app through a QR authentication. Then the user get access to add notes and read notes.
 First we have to manually add pre defined users to cloud fire store. For that we have to create a data collection named Users. There we add 3 data fields for users, QR Id, User Name, and E mail. Out of these, QR Id is used to identify the user uniquely.
@@ -13,5 +14,6 @@ To identify notes, three data types are used.They are; QR Id, date and time and 
 How to addqrcode-scanner
 ----------------
 npm i react-native-qrcode-scanner
+
 
 
