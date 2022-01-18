@@ -4,11 +4,11 @@ const initialUserDetailsInfo = {
   NoteList: '',
 };
 
-const AddNewScreenReducer = (state = initialUserDetailsInfo, action) => {
+const ViewNoteScreenReducer = (state = initialUserDetailsInfo, action) => {
   let newState;
 
-  console.log('[AddNewScreenReducer] - state : ', JSON.stringify(state));
-  console.log('[AddNewScreenReducer] - action : ', JSON.stringify(action));
+  console.log('[ViewNoteScreenReducer] - state : ', JSON.stringify(state));
+  console.log('[ViewNoteScreenReducer] - action : ', JSON.stringify(action));
 
   switch (action.type) {
     case UPDATE_NOTES:
@@ -17,7 +17,7 @@ const AddNewScreenReducer = (state = initialUserDetailsInfo, action) => {
       };
 
       console.log(
-        '[AddNewScreenReducer] - New State : ',
+        '[ViewNoteScreenReducer] - New State : ',
         JSON.stringify(newState),
       );
 
@@ -29,4 +29,4 @@ const AddNewScreenReducer = (state = initialUserDetailsInfo, action) => {
   }
 };
 
-export default AddNewScreenReducer;
+export default ViewNoteScreenReducer;

@@ -16,3 +16,5 @@ export default async function SetNotes(Note,QRId) {
   });
   Alert.alert('', 'Submit Successful', [{text: 'OK'}]);
 }
+
+

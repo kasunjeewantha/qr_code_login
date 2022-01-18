@@ -19,13 +19,20 @@ class QRScreen extends Component {
     this.state = {
       QRId: '',
       success: false,
+      reactive: true,
     };
   }
   async componentDidMount() {
+    this.unsubscribe = this.props.navigation.addListener('focus', async () => {
+      this.setState({
+        reactive: true,
+      });
+    });
     BackHandler.addEventListener('hardwareBackPress', this.onPressBack);
   }
 
   componentWillUnmount() {
+    this.unsubscribe();
     BackHandler.removeEventListener('hardwareBackPress', this.onPressBack);
   }
 
@@ -77,7 +84,6 @@ class QRScreen extends Component {
           break;
         } else {
           console.log('login fail');
-          Alert.alert('Login Error', 'Login fail', [{text: 'OK'}]);
           success = false;
         }
       }
@@ -89,6 +95,9 @@ class QRScreen extends Component {
 
   ContinueButton = () => {
     console.log('ContinueButton');
+    this.setState({
+      reactive: false,
+    });
     this.props.navigation.navigate('MainScreen');
   };
 
@@ -117,7 +126,7 @@ class QRScreen extends Component {
             <View style={QRScreenStyles.qrContainer}>
               <QRCodeScanner
                 onRead={this.onRead}
-                reactivate={true}
+                reactivate={this.state.reactive}
                 showMarker={true}
                 reactivateTimeout={2000}
                 flashMode={RNCamera.Constants.FlashMode.off}

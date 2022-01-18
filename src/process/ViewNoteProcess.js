@@ -3,6 +3,7 @@ import {db} from '../firebase/firebase-config';
 import {collection, getDocs} from 'firebase/firestore/lite';
 
 export default async function GetNotes(QRId, callback) {
+
   const notesCol = collection(db, 'notes');
   const notesSnapshot = await getDocs(notesCol);
   const noteList = notesSnapshot.docs.map(doc => doc.data());
@@ -17,4 +18,6 @@ export default async function GetNotes(QRId, callback) {
 
     callback(NoteTableDetails);
   });
+
+  
 } // End of SearchBSP()
